@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1088.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javacode.controllers.MainWindowController">
+   <effect>
+      <DropShadow color="#383838ce" height="32.0" radius="15.5" width="32.0" />
+   </effect>
+   <AnchorPane fx:id="anchorPaneBody" layoutX="149.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-radius: 5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="83.0" styleClass="setting-pane" stylesheets="@../css/main_style.css" HBox.hgrow="ALWAYS">
+            <children>
+               <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="39.0">
+                  <image>
+                     <Image url="@../img/logo.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </AnchorPane>
+         <AnchorPane prefHeight="560.0" prefWidth="324.0" styleClass="content-pane" stylesheets="@../css/main_style.css" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="560.0" prefWidth="190.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #42c662; -fx-background-radius: 0 5 0 0;" VBox.vgrow="ALWAYS" />
+               <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="815.0" style="-fx-border-color: #e6e6e6; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #f0f0f0;" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="textFieldSearch" layoutX="547.0" layoutY="10.0" prefHeight="21.0" prefWidth="129.0" promptText="Поиск" styleClass="search-textfield" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="10.0" />
+                  <Button layoutX="23.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="8.0">
+                     <styleClass>
+                        <String fx:value="optional-button" />
+                        <String fx:value="upload-button" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="68.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="8.0">
+                     <styleClass>
+                        <String fx:value="optional-button" />
+                        <String fx:value="download-button" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="116.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="8.0">
+                     <styleClass>
+                        <String fx:value="optional-button" />
+                        <String fx:value="folder-add-button" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="164.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="164.0" AnchorPane.topAnchor="8.0">
+                     <styleClass>
+                        <String fx:value="optional-button" />
+                        <String fx:value="delete-button" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="245.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="245.0" AnchorPane.topAnchor="8.0">
+                     <styleClass>
+                        <String fx:value="optional-button" />
+                        <String fx:value="update-button" />
+                     </styleClass>
+                  </Button>
+               </AnchorPane>
+               <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="22.0" prefWidth="200.0">
+                  <children>
+                     <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                       <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="70.0" />
+                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                       </columnConstraints>
+                       <rowConstraints>
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                       </rowConstraints>
+                        <children>
+                           <Label text="Тип" textFill="#232323" GridPane.columnIndex="1">
+                              <GridPane.margin>
+                                 <Insets />
+                              </GridPane.margin>
+                              <font>
+                                 <Font name="Segoe UI" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label text="Размер" textFill="#232323" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                              <padding>
+                                 <Insets right="10.0" />
+                              </padding>
+                              <font>
+                                 <Font name="Segoe UI" size="12.0" />
+                              </font>
+                           </Label>
+                           <Label text="Наименование" textFill="#232323">
+                              <font>
+                                 <Font name="Segoe UI" size="12.0" />
+                              </font>
+                              <GridPane.margin>
+                                 <Insets left="20.0" />
+                              </GridPane.margin>
+                           </Label>
+                        </children>
+                     </GridPane>
+                  </children>
+               </AnchorPane>
+               <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f9fafa; -fx-background-radius: 0 0 5 0;" VBox.vgrow="ALWAYS">
+                  <children>
+                     <ListView fx:id="listViewFiles" layoutX="70.0" layoutY="95.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/main_style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children></AnchorPane>
+            </VBox>
+            <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="495.0" styleClass="login-pane" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <effect>
+                        <DropShadow color="#0000001d" height="23.97" offsetY="6.0" radius="18.8975" width="53.62" />
+                     </effect>
+                     <children>
+                        <Label layoutX="116.0" layoutY="14.0" prefHeight="28.0" prefWidth="365.0" text="Для доступа к серверу необходимо заполнить все поля. Если у вас нету аккаунта, создайте его." textAlignment="JUSTIFY" wrapText="true" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="Segoe UI" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="143.0" layoutY="90.0" text="Имя:" textFill="#232323" AnchorPane.leftAnchor="143.0">
+                           <font>
+                              <Font name="Segoe UI" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="125.0" layoutY="120.0" text="Пароль:" textFill="#232323" AnchorPane.leftAnchor="125.0">
+                           <font>
+                              <Font name="Segoe UI" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textFieldName2" layoutX="184.0" layoutY="86.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
+                        <PasswordField fx:id="textFieldPassword2" layoutX="184.0" layoutY="116.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
+                        <Label layoutX="122.0" layoutY="60.0" text="IP адрес:" textFill="#232323" AnchorPane.leftAnchor="122.0">
+                           <font>
+                              <Font name="Segoe UI" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="textFieldIPAddress2" layoutX="184.0" layoutY="56.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" text="127.0.0.1" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
+                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                           <image>
+                              <Image url="@../img/key.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="buttonConnect" layoutX="365.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="110.0" styleClass="main-button" text="Подключиться" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="20.0" />
+                        <Button fx:id="buttonCancel" layoutX="235.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="109.0" styleClass="standard-button" text="Отменить" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="151.0" />
+                        <Label layoutX="125.0" layoutY="145.0" prefHeight="15.0" prefWidth="284.0" text="Заполните все поля" textAlignment="JUSTIFY" textFill="#bc0000" wrapText="true" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="145.0">
+                           <font>
+                              <Font name="Segoe UI" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </AnchorPane>
+      </HBox>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="83.0" prefHeight="15.0" prefWidth="965.0" text="FTP Client © 2017" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font>
+      </Label>
+   </AnchorPane>
+   <AnchorPane fx:id="anchorPaneMainHeader" prefHeight="27.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="anchorPaneHeaderButtons" layoutX="5.0" prefHeight="20.0" prefWidth="72.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="2.0">
+         <Button fx:id="buttonHeaderMax" maxHeight="14.0" maxWidth="14.0" minHeight="14.0" minWidth="14.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" stylesheets="@../css/main_style.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="4.0">
+            <styleClass>
+               <String fx:value="header-button" />
+               <String fx:value="max-button" />
+            </styleClass>
+         </Button>
+         <Button fx:id="buttonHeaderClose" maxHeight="14.0" maxWidth="14.0" minHeight="14.0" minWidth="14.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" stylesheets="@../css/main_style.css" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="4.0">
+            <styleClass>
+               <String fx:value="header-button" />
+               <String fx:value="close-button" />
+            </styleClass>
+         </Button>
+         <Button fx:id="buttonHeaderMin" maxHeight="14.0" maxWidth="14.0" minHeight="14.0" minWidth="14.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" stylesheets="@../css/main_style.css" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="4.0">
+            <styleClass>
+               <String fx:value="header-button" />
+               <String fx:value="min-button" />
+            </styleClass>
+         </Button>
+      </AnchorPane>
+   </AnchorPane>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</AnchorPane>

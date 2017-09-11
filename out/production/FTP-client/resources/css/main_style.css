@@ -1,0 +1,222 @@
+.standard-button {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#c7c7c7 0%, #c1c1c1 20%, #c1c1c1 80%, #acacac 100%),
+            white;
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 3 10 3 10;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.standard-button:pressed {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#4a77b8 0%, #0047d4 100%),
+            linear-gradient(#4c97fd 0%, #1161ee 100%);
+    -fx-text-fill: white;
+}
+
+.optional-button {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#c7c7c7 0%, #c1c1c1 20%, #c1c1c1 80%, #acacac 100%),
+            white;
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-cursor: hand;
+}
+
+.optional-button:pressed {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#4a77b8 0%, #0047d4 100%),
+            linear-gradient(#4c97fd 0%, #1161ee 100%);
+}
+
+.main-button {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#4ba2fb 0%, #055cff 100%),
+            linear-gradient(#6cb3fa 0%, #087eff 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 3 10 3 10;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.main-button:pressed {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#4498ff 0%, #0a67de 100%),
+            linear-gradient(#287cf0 0%, #223f8f 100%);
+}
+
+.standard-textfield {
+    -fx-background-color:
+            #b1b1b1,
+            #ffffff;
+    -fx-background-insets: 0,1;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #232323;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-padding: 3 10 3 10;
+}
+
+.standard-textfield:focused {
+    -fx-background-color:
+            #96c3f1,
+            #b1b1b1,
+            #ffffff;
+    -fx-background-insets: -3,0,1;
+    -fx-background-radius: 3,0,0;
+}
+
+.search-textfield {
+    -fx-background-color:
+            #d0d0d0,
+            #e1e1e1;
+    -fx-background-insets: -1,0;
+    -fx-background-radius: 4,3;
+    -fx-background-image: url("../img/icon-search.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 4px center;
+    -fx-background-size: 15px auto;
+    -fx-padding: 3 10 3 24;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-prompt-text-fill: #bebebf;
+}
+
+.header-button {
+    -fx-background-color: transparent;
+    -fx-background-size: 16px 16px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center, center;
+    -fx-border: none;
+    -fx-cursor: hand;
+}
+
+.min-button {
+    -fx-background-image: url("../img/headerbuttons/min-normal.png");
+}
+
+.close-button {
+    -fx-background-image: url("../img/headerbuttons/close-normal.png");
+}
+
+.max-button {
+    -fx-background-image: url("../img/headerbuttons/max-normal.png");
+}
+
+.content-pane {
+    -fx-background-radius: 0px 5px 5px 0px;
+    -fx-background-color: #f9fafa;
+}
+
+.setting-pane {
+    -fx-background-radius: 5px 0px 0px 5px;
+    -fx-background-color: #252935;
+}
+
+.list-view{
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+}
+
+.scroll-bar:horizontal ,
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button ,.decrement-button {
+    -fx-background-color:transparent;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color:derive(gray,80%);
+}
+.scroll-bar .thumb:hover,
+.scroll-bar .thumb:pressed{
+    -fx-background-color: derive(gray,50%);
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 3px 5px 0px 5px;
+}
+
+.user-list-view .list-cell {
+    -fx-text-fill: #232323;
+ }
+
+.upload-button {
+    -fx-background-image: url("../img/upload.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: auto 16px;
+}
+
+.upload-button:pressed {
+    -fx-background-image: url("../img/upload-white.png");
+}
+
+.download-button {
+    -fx-background-image: url("../img/download.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: auto 16px;
+}
+
+.download-button:pressed {
+    -fx-background-image: url("../img/download-white.png");
+}
+
+.folder-add-button {
+    -fx-background-image: url("../img/folder-add.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: auto 16px;
+}
+
+.folder-add-button:pressed {
+    -fx-background-image: url("../img/folder-add-white.png");
+}
+
+.delete-button {
+     -fx-background-image: url("../img/delete.png");
+     -fx-background-repeat: no-repeat;
+     -fx-background-position: center center;
+     -fx-background-size: auto 16px;
+}
+
+.delete-button:pressed {
+    -fx-background-image: url("../img/delete-white.png");
+}
+
+.update-button {
+    -fx-background-image: url("../img/update.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: auto 16px;
+}
+
+.update-button:pressed {
+    -fx-background-image: url("../img/update-white.png");
+}
+
+.login-pane {
+    -fx-background-color: rgba(0,0,0,0.08), #e6e6e6, #f0f0f0;
+    -fx-background-insets: 0 0 -1 0, 0, 0 1 1 1;
+    -fx-background-radius: 0px 0px 5px 5px;
+}
