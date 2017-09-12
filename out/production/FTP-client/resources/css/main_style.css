@@ -215,6 +215,17 @@
     -fx-background-image: url("../img/update-white.png");
 }
 
+.user-button {
+    -fx-background-image: url("../img/user.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: auto 16px;
+}
+
+.user-button:pressed {
+    -fx-background-image: url("../img/user-white.png");
+}
+
 .login-pane {
     -fx-background-color: rgba(0,0,0,0.08), #e6e6e6, #f0f0f0;
     -fx-background-insets: 0 0 -1 0, 0, 0 1 1 1;

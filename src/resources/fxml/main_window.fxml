@@ -38,35 +38,59 @@
                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #42c662; -fx-background-radius: 0 5 0 0;" VBox.vgrow="ALWAYS" />
                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="815.0" style="-fx-border-color: #e6e6e6; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #f0f0f0;" VBox.vgrow="ALWAYS">
                   <TextField fx:id="textFieldSearch" layoutX="547.0" layoutY="10.0" prefHeight="21.0" prefWidth="129.0" promptText="Поиск" styleClass="search-textfield" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="10.0" />
-                  <Button layoutX="23.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonUpload" disable="true" layoutX="23.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="upload-button" />
                      </styleClass>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
                   </Button>
-                  <Button layoutX="68.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonDownload" disable="true" layoutX="68.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="download-button" />
                      </styleClass>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
                   </Button>
-                  <Button layoutX="116.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonAddDirectory" disable="true" layoutX="116.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="folder-add-button" />
                      </styleClass>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
                   </Button>
-                  <Button layoutX="164.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="164.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonDelete" disable="true" layoutX="164.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="164.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="delete-button" />
                      </styleClass>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
                   </Button>
-                  <Button layoutX="245.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="245.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonUpdate" disable="true" layoutX="245.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="245.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="update-button" />
                      </styleClass>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonAddResetConnect" layoutX="293.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="293.0" AnchorPane.topAnchor="8.0">
+                     <styleClass>
+                        <String fx:value="optional-button" />
+                        <String fx:value="user-button" />
+                     </styleClass>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
                   </Button>
                </AnchorPane>
                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="22.0" prefWidth="200.0">
@@ -115,7 +139,7 @@
                      <ListView fx:id="listViewFiles" layoutX="70.0" layoutY="95.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/main_style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   </children></AnchorPane>
             </VBox>
-            <GridPane fx:id="gridPaneLogInBlock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+            <GridPane fx:id="gridPaneLogInBlock" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -157,7 +181,7 @@
                            </image>
                         </ImageView>
                         <Button fx:id="buttonConnect" layoutX="365.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="110.0" styleClass="main-button" text="Подключиться" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="20.0" />
-                        <Button fx:id="buttonCancel" layoutX="235.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="109.0" styleClass="standard-button" text="Отменить" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="151.0" />
+                        <Button fx:id="buttonCancelConnect" layoutX="235.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="109.0" styleClass="standard-button" text="Отменить" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="151.0" />
                         <Label fx:id="labelShowError" layoutX="20.0" layoutY="165.0" prefHeight="15.0" prefWidth="204.0" text="Заполните все поля" textAlignment="JUSTIFY" textFill="#bc0000" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="271.0" AnchorPane.topAnchor="165.0">
                            <font>
                               <Font name="Segoe UI" size="11.0" />
