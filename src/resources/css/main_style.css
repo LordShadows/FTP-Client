@@ -129,7 +129,17 @@
 
 .list-view{
     -fx-background-color: transparent;
-    -fx-padding: 0px;
+    -fx-padding: 5px 0px 0px 0px;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 2px 5px 2px 5px;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #3a91fd;
 }
 
 .scroll-bar:horizontal ,
@@ -149,16 +159,6 @@
 .scroll-bar .thumb:pressed{
     -fx-background-color: derive(gray,50%);
 }
-
-.list-cell {
-    -fx-background-color: transparent;
-    -fx-font-family: "Segoe UI";
-    -fx-padding: 3px 5px 0px 5px;
-}
-
-.user-list-view .list-cell {
-    -fx-text-fill: #232323;
- }
 
 .upload-button {
     -fx-background-image: url("../img/upload.png");
@@ -230,4 +230,24 @@
     -fx-background-color: rgba(0,0,0,0.08), #e6e6e6, #f0f0f0;
     -fx-background-insets: 0 0 -1 0, 0, 0 1 1 1;
     -fx-background-radius: 0px 0px 5px 5px;
+}
+
+.progress-bar {
+    -fx-indeterminate-bar-length: 60;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+}
+.progress-bar > .bar {
+    -fx-background-color: #388ffd;
+    -fx-background-insets: 1 1 1 1;
+    -fx-background-radius: 2;
+    -fx-padding: 0;
+}
+
+.progress-bar > .track {
+    -fx-background-color:
+            #d0d0d0,
+            #e1e1e1;
+    -fx-background-insets: -1,0;
+    -fx-background-radius: 4,3;
 }

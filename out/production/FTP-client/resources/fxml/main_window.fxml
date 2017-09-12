@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1088.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javacode.controllers.MainWindowController">
+<AnchorPane fx:id="anchorPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="981.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javacode.controllers.MainWindowController">
    <effect>
       <DropShadow color="#383838ce" height="32.0" radius="15.5" width="32.0" />
    </effect>
@@ -37,7 +38,7 @@
             <VBox prefHeight="560.0" prefWidth="190.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #42c662; -fx-background-radius: 0 5 0 0;" VBox.vgrow="ALWAYS" />
                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="815.0" style="-fx-border-color: #e6e6e6; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #f0f0f0;" VBox.vgrow="ALWAYS">
-                  <TextField fx:id="textFieldSearch" layoutX="547.0" layoutY="10.0" prefHeight="21.0" prefWidth="129.0" promptText="Поиск" styleClass="search-textfield" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="10.0" />
+                  <TextField fx:id="textFieldSearch" layoutX="508.0" layoutY="10.0" prefHeight="21.0" prefWidth="321.0" promptText="Поиск" styleClass="search-textfield" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="10.0" />
                   <Button fx:id="buttonUpload" disable="true" layoutX="23.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
@@ -74,7 +75,7 @@
                         <Font name="Segoe UI" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonUpdate" disable="true" layoutX="245.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="245.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonUpdate" disable="true" layoutX="857.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="update-button" />
@@ -83,7 +84,7 @@
                         <Font name="Segoe UI" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonAddResetConnect" layoutX="293.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.leftAnchor="293.0" AnchorPane.topAnchor="8.0">
+                  <Button fx:id="buttonAddResetConnect" layoutX="905.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="8.0">
                      <styleClass>
                         <String fx:value="optional-button" />
                         <String fx:value="user-button" />
@@ -98,15 +99,15 @@
                      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                        <columnConstraints>
                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
-                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="70.0" />
-                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="74.0" />
+                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="81.0" />
+                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" />
                        </columnConstraints>
                        <rowConstraints>
                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                        </rowConstraints>
                         <children>
-                           <Label text="Тип" textFill="#232323" GridPane.columnIndex="1">
+                           <Label contentDisplay="CENTER" text="|     Тип" textFill="#232323" GridPane.columnIndex="1">
                               <GridPane.margin>
                                  <Insets />
                               </GridPane.margin>
@@ -114,7 +115,7 @@
                                  <Font name="Segoe UI" size="12.0" />
                               </font>
                            </Label>
-                           <Label text="Размер" textFill="#232323" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                           <Label prefHeight="15.0" prefWidth="87.0" text="|        Размер" textFill="#232323" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                               <padding>
                                  <Insets right="10.0" />
                               </padding>
@@ -139,7 +140,7 @@
                      <ListView fx:id="listViewFiles" layoutX="70.0" layoutY="95.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/main_style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   </children></AnchorPane>
             </VBox>
-            <GridPane fx:id="gridPaneLogInBlock" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+            <GridPane fx:id="gridPaneLogInBlock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -167,8 +168,8 @@
                               <Font name="Segoe UI" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldName" layoutX="184.0" layoutY="86.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
-                        <PasswordField fx:id="textFieldPassword" layoutX="184.0" layoutY="116.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
+                        <TextField fx:id="textFieldName" layoutX="184.0" layoutY="86.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" text="admin" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
+                        <PasswordField fx:id="textFieldPassword" layoutX="184.0" layoutY="116.0" prefHeight="23.0" prefWidth="280.0" styleClass="standard-textfield" text="admin" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="20.0" />
                         <Label layoutX="122.0" layoutY="60.0" text="IP адрес:" textFill="#232323" AnchorPane.leftAnchor="122.0">
                            <font>
                               <Font name="Segoe UI" size="12.0" />
@@ -182,11 +183,75 @@
                         </ImageView>
                         <Button fx:id="buttonConnect" layoutX="365.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="110.0" styleClass="main-button" text="Подключиться" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="20.0" />
                         <Button fx:id="buttonCancelConnect" layoutX="235.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="109.0" styleClass="standard-button" text="Отменить" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="151.0" />
-                        <Label fx:id="labelShowError" layoutX="20.0" layoutY="165.0" prefHeight="15.0" prefWidth="204.0" text="Заполните все поля" textAlignment="JUSTIFY" textFill="#bc0000" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="271.0" AnchorPane.topAnchor="165.0">
+                        <Label fx:id="labelShowError" layoutX="20.0" layoutY="165.0" prefHeight="15.0" prefWidth="204.0" text="Заполните все поля." textAlignment="JUSTIFY" textFill="#bc0000" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="271.0" AnchorPane.topAnchor="165.0">
                            <font>
                               <Font name="Segoe UI" size="11.0" />
                            </font>
                         </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridPaneQuestion" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="495.0" styleClass="login-pane" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <effect>
+                        <DropShadow color="#0000001d" height="23.97" offsetY="6.0" radius="18.8975" width="53.62" />
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                           <image>
+                              <Image url="@../img/question.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="buttonYes" layoutX="365.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="110.0" styleClass="main-button" text="Да" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="20.0" />
+                        <Button fx:id="buttonNo" layoutX="235.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="109.0" styleClass="standard-button" text="Нет" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="151.0" />
+                        <VBox layoutX="125.0" layoutY="24.0" prefHeight="78.0" prefWidth="346.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="24.0">
+                           <children>
+                              <Label fx:id="labelQuestion" text="Вопрос?" textAlignment="JUSTIFY" textFill="#232323" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelDesQuestion" text="Пояснение" textAlignment="JUSTIFY" textFill="#232323" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI" size="11.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="7.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridPaneDownload" layoutX="10.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="495.0" styleClass="login-pane" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <effect>
+                        <DropShadow color="#0000001d" height="23.97" offsetY="6.0" radius="18.8975" width="53.62" />
+                     </effect>
+                     <children>
+                        <Label fx:id="labelDownloadFile" layoutX="32.0" layoutY="23.0" prefHeight="15.0" prefWidth="426.0" text="Загрузка файла root.txt" textAlignment="JUSTIFY" textFill="#232323" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="23.0">
+                           <font>
+                              <Font name="Segoe UI" size="12.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar fx:id="progressBarDownload" layoutX="30.0" layoutY="46.0" prefHeight="25.0" prefWidth="435.0" progress="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="46.0" />
                      </children>
                   </AnchorPane>
                </children>

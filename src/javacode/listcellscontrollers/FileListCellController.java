@@ -26,8 +26,6 @@ public class FileListCellController extends ListCell<ListCellFile> {
     @FXML
     private Label size;
 
-
-
     private FXMLLoader mLLoader;
 
     @Override
@@ -59,6 +57,18 @@ public class FileListCellController extends ListCell<ListCellFile> {
 
             setText(null);
             setGraphic(gridPane);
+
+            selectedProperty().addListener( (obsVal, oldVal, newVal) -> {
+                if(newVal){
+                    name.setStyle("-fx-text-fill: white");
+                    size.setStyle("-fx-text-fill: white");
+                    type.setStyle("-fx-text-fill: white");
+                } else {
+                    name.setStyle("");
+                    size.setStyle("");
+                    type.setStyle("");
+                }
+            });
 
             widthProperty().addListener((observable, oldValue, newValue) -> {
                 gridPane.setPrefWidth(getWidth() - 15);

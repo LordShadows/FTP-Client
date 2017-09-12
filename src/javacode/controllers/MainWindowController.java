@@ -2,6 +2,7 @@ package javacode.controllers;
 
 import javacode.classresources.ListCellFile;
 import javacode.listcellscontrollers.FileListCellController;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,12 +11,15 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
-
+import java.io.*;
+import java.lang.reflect.Method;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,11 +29,17 @@ public class MainWindowController {
     private double xOffset;
     private double yOffset;
 
-    private FTPClient FTP = new FTPClient();
+    FTPClient FTP = new FTPClient();
     private boolean isConnect = false;
+
+    private String nowDirectory = "\\";
+    private ListCellFile selectFile = null;
 
     @FXML
     private AnchorPane anchorPaneMainHeader;
+
+    @FXML
+    private TextField textFieldSearch;
 
     @FXML
     private AnchorPane anchorPaneMain;
@@ -88,6 +98,30 @@ public class MainWindowController {
     @FXML
     private Label labelShowError;
 
+    @FXML
+    private GridPane gridPaneQuestion;
+
+    @FXML
+    private Button buttonYes;
+
+    @FXML
+    private Button buttonNo;
+
+    @FXML
+    private Label labelQuestion;
+
+    @FXML
+    private Label labelDesQuestion;
+
+    @FXML
+    public GridPane gridPaneDownload;
+
+    @FXML
+    public Label labelDownloadFile;
+
+    @FXML
+    public ProgressBar progressBarDownload;
+
 
     private void initComponents() {
         // Реализация отображения кнопок свернуть, развернуть, закрыть.
@@ -134,8 +168,21 @@ public class MainWindowController {
         });
         //
 
+        // Событие закрытия окна
+        STAGE.setOnCloseRequest(event -> {
+            if(isConnect) {
+                try {
+                    FTP.logout();
+                    FTP.disconnect();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         // Авторизация
         buttonAddResetConnect.setOnMouseClicked(event -> gridPaneLogInBlock.setVisible(true));
+
         textFieldIPAddress.setOnKeyReleased(event -> {
             if(event.getCode() == KeyCode.ENTER) {
                 initConnect();
@@ -159,6 +206,47 @@ public class MainWindowController {
         buttonCancelConnect.setOnMouseClicked(event -> gridPaneLogInBlock.setVisible(false));
         //
 
+        // Обновление списка
+        buttonUpdate.setOnMouseClicked(event -> updateFilesTree(null));
+
+        listViewFiles.setOnMouseClicked(event->{
+            if(event.getClickCount() == 1) {
+                if(listViewFiles.getSelectionModel().getSelectedItem() != null) {
+                    selectFile = listViewFiles.getSelectionModel().getSelectedItem();
+                }
+            } else  if(event.getClickCount() == 2) {
+                if(selectFile != null) {
+                    if(selectFile.isFolder()){
+                        updateFilesTree(selectFile.getName());
+                    } else {
+                        new Thread(() -> Platform.runLater(() -> {
+                        try {
+                            showQuestion("Загрузить файл " + selectFile.getName() + "?",
+                                    "Если Вы хотите загрузить данный файл в память Вашего компьютер, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
+                                    this.getClass().getDeclaredMethod("downloadFileFromServer", String.class, String.class, long.class, MainWindowController.class),
+                                    new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }})).start();
+                    }
+                }
+            }
+        });
+
+        // Звкрытие окна вопроса
+        buttonNo.setOnMouseClicked(event -> gridPaneQuestion.setVisible(false));
+
+        buttonDownload.setOnMouseClicked(event -> {
+            new Thread(() -> Platform.runLater(() -> {
+                try {
+                    showQuestion("Загрузить файл " + selectFile.getName() + "?",
+                            "Если Вы хотите загрузить данный файл в память Вашего компьютер, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
+                            this.getClass().getDeclaredMethod("downloadFileFromServer", String.class, String.class, long.class, MainWindowController.class),
+                            new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }})).start();
+        });
     }
 
     public void Initialization(Stage _stage) {
@@ -193,7 +281,7 @@ public class MainWindowController {
                             isConnect = true;
                             gridPaneLogInBlock.setVisible(false);
                             optionButtonDisable(false);
-                            updateFilesTree(); // Обновляем список
+                            updateFilesTree(null); // Обновляем список
                         } else {
                             FTP.logout();
                             FTP.disconnect();
@@ -211,7 +299,7 @@ public class MainWindowController {
             }
         }
     }
-
+        // Проверка всех полей на корректность введенных данных с помощью регулярных выражений
     private boolean isInputDataCorrect() { // Проверка всех полей на корректность введенных данных с помощью регулярных выражений
         if(!regex(textFieldIPAddress.getText(), "^(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])(\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])){3}$")){
             labelShowError.setText("Некорректный IP адрес.");
@@ -237,17 +325,31 @@ public class MainWindowController {
     //
 
     //Фукнции отображения дерева файлов
-    private void updateFilesTree() {
+    private void updateFilesTree(String directory) {
+        if(directory != null) {
+            if(Objects.equals(directory, "..")){
+                if(!Objects.equals(nowDirectory, "")) {
+                        nowDirectory = nowDirectory.substring(0, nowDirectory.substring(0, nowDirectory.length() - 1).lastIndexOf("\\") + 1);
+                }
+            }
+            else {
+                nowDirectory += directory + "\\";
+            }
+        }
+        selectFile = null;
         ObservableList<ListCellFile> files = FXCollections.observableArrayList();
         if(isConnect) {
             try {
+                FTP.changeWorkingDirectory(nowDirectory);
                 FTPFile[] ftpFiles = FTP.listFiles(); // Получаем все файлы папки FTP сервера
                 if (ftpFiles != null && ftpFiles.length > 0) {
                     for (FTPFile file : ftpFiles) {
                         if (file.isDirectory()) {
-                            files.add(new ListCellFile(null, file.getName(), file.getSize(), null, true));
+                            if(Objects.equals(file.getName(), ".")) continue;
+                            if(Objects.equals(file.getName(), "..") && Objects.equals(nowDirectory, "\\")) continue;
+                            files.add(new ListCellFile(nowDirectory +  file.getName(), file.getName(), file.getSize(), null, true));
                         } else if (file.isFile()) {
-                            files.add(new ListCellFile(null, file.getName(), file.getSize(), null, false));
+                            files.add(new ListCellFile(nowDirectory +  file.getName(), file.getName(), file.getSize(), null, false));
                         }
                     }
                 }
@@ -260,5 +362,67 @@ public class MainWindowController {
         listViewFiles.setCellFactory(slw -> new FileListCellController());
     }
     //
+
+    // Вывод вопроса
+    private void showQuestion (String title, String description, Method method, Object[] params){
+        labelQuestion.setText(title);
+        labelDesQuestion.setText(description);
+        gridPaneQuestion.setVisible(true);
+        buttonYes.setOnMouseClicked(event -> {
+            try {
+                Class c = method.getDeclaringClass();
+                Object t = c.newInstance();
+                method.setAccessible(true);
+                method.invoke(t, params);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            gridPaneQuestion.setVisible(false);
+        });
+    }
+
+    // Загрузка файла с сервера
+    private void downloadFileFromServer (String path, String name, long size, MainWindowController MWC){
+        try {
+            Platform.runLater(() -> {
+                MWC.progressBarDownload.setProgress(0);
+                MWC.labelDownloadFile.setText("Загрузка файла " + name);
+                MWC.gridPaneDownload.setVisible(true);
+            });
+
+            File downloadFile = new File(new File("").getAbsolutePath() + "/temp/" + name);
+            OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile));
+            InputStream inputStream = MWC.FTP.retrieveFileStream(path);
+            byte[] bytesArray = new byte[1024];
+            int bytesRead;
+            long allBytesRead = 0;
+            while ((bytesRead = inputStream.read(bytesArray)) != -1) {
+                outputStream.write(bytesArray, 0, bytesRead);
+                allBytesRead += bytesRead;
+                MWC.progressBarDownload.setProgress(allBytesRead/(double)size);
+            }
+            outputStream.close();
+            inputStream.close();
+
+            Platform.runLater(() -> MWC.gridPaneDownload.setVisible(false));
+
+            if (MWC.FTP.completePendingCommand()) {
+                Platform.runLater(()-> {
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setTitle("Сохранить как...");
+                    fileChooser.setInitialFileName(name);
+                    File selectedFile = fileChooser.showSaveDialog(MWC.STAGE);
+                    if (selectedFile != null) {
+                        downloadFile.renameTo(selectedFile);
+                    } else {
+                        downloadFile.delete();
+                    }
+                });
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

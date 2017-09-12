@@ -1,24 +1,24 @@
 package javacode.classresources;
 
-import java.io.File;
+import org.apache.commons.net.ftp.FTPFile;
 
 public class ListCellFile {
-    private File file;
+    private String path;
     private String name;
     private long size;
     private String date;
     private boolean isFolder;
 
-    public ListCellFile(File file, String name, long size, String date, boolean isFolder) {
-        this.file = file;
+    public ListCellFile(String path, String name, long size, String date, boolean isFolder) {
+        this.path = path;
         this.name = name;
         this.size = size;
         this.date = date;
         this.isFolder = isFolder;
     }
 
-    public File getFile() {
-        return file;
+    public String getPath() {
+        return path;
     }
 
     public String getName() {
