@@ -4,14 +4,9 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/javacode/controllers/MainWindowController.class" afterPath="$PROJECT_DIR$/out/production/FTP-client/javacode/controllers/MainWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/resources/img/key.png" afterPath="$PROJECT_DIR$/out/production/FTP-client/resources/img/key.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FTP-client.iml" afterPath="$PROJECT_DIR$/FTP-client.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/resources/css/main_style.css" afterPath="$PROJECT_DIR$/out/production/FTP-client/resources/css/main_style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/resources/fxml/main_window.fxml" afterPath="$PROJECT_DIR$/out/production/FTP-client/resources/fxml/main_window.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java" afterPath="$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/css/main_style.css" afterPath="$PROJECT_DIR$/src/resources/css/main_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/fxml/main_window.fxml" afterPath="$PROJECT_DIR$/src/resources/fxml/main_window.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +68,8 @@
       <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="258" column="38" lean-forward="true" selection-start-line="258" selection-start-column="38" selection-end-line="258" selection-end-column="38" />
+            <state relative-caret-position="301">
+              <caret line="249" column="7" lean-forward="true" selection-start-line="249" selection-start-column="7" selection-end-line="249" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -946,12 +941,20 @@
       <workItem from="1505105146500" duration="3610000" />
       <workItem from="1505115525985" duration="2554000" />
       <workItem from="1505146453928" duration="9805000" />
-      <workItem from="1505190605174" duration="8556000" />
+      <workItem from="1505190605174" duration="8682000" />
     </task>
+    <task id="LOCAL-00001" summary="Added implementation of connection to the server. Implemented draft reflection of server files.">
+      <created>1505201101556</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1505201101556</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25827000" />
+    <option name="totallyTimeSpent" value="25953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
@@ -1002,6 +1005,8 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="Added implementation of connection to the server. Implemented draft reflection of server files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added implementation of connection to the server. Implemented draft reflection of server files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1270,8 +1275,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="258" column="38" lean-forward="true" selection-start-line="258" selection-start-column="38" selection-end-line="258" selection-end-column="38" />
+        <state relative-caret-position="301">
+          <caret line="249" column="7" lean-forward="true" selection-start-line="249" selection-start-column="7" selection-end-line="249" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
