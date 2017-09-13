@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -16,6 +17,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
+import org.apache.commons.net.ftp.FTPFileFilter;
 import org.apache.commons.net.ftp.FTPReply;
 import java.io.*;
 import java.lang.reflect.Method;
@@ -26,6 +28,7 @@ import java.util.regex.Pattern;
 
 public class MainWindowController {
     private Stage STAGE;
+    public static MainWindowController MWC;
 
     private double xOffset;
     private double yOffset;
@@ -36,8 +39,12 @@ public class MainWindowController {
     private String nowDirectory = "\\";
     private ListCellFile selectFile = null;
 
-    public long dirSize;
-    public long deleteDirSize;
+    private long dirSize;
+    private long deleteDirSize;
+
+    public String renameFilePath;
+    public String oldNameRenameFile;
+    public boolean isFolderRenameFile;
 
     @FXML
     private AnchorPane anchorPaneMainHeader;
@@ -138,6 +145,39 @@ public class MainWindowController {
     @FXML
     private Label labelDesError;
 
+    @FXML
+    public GridPane gridPaneNewDir;
+
+    @FXML
+    public TextField textFieldNameNewDir;
+
+    @FXML
+    private Button buttonAddNewDir;
+
+    @FXML
+    public GridPane gridPaneRename;
+
+    @FXML
+    public TextField textFieldRename;
+
+    @FXML
+    private Button buttonRename;
+
+    @FXML
+    private Button buttonRenameCancel;
+
+    @FXML
+    private Button buttonAddCancel;
+
+    @FXML
+    private ImageView imageAbout;
+
+    @FXML
+    private GridPane gridPaneAbout;
+
+    @FXML
+    private Button buttonAboutOK;
+
 
     private void initComponents() {
         // Реализация отображения кнопок свернуть, развернуть, закрыть.
@@ -231,20 +271,31 @@ public class MainWindowController {
                     selectFile = listViewFiles.getSelectionModel().getSelectedItem();
                 }
             } else  if(event.getClickCount() == 2) {
-                if(selectFile != null) {
-                    if(selectFile.isFolder()){
-                        updateFilesTree(selectFile.getName());
-                    } else {
-                        try {
-                            showQuestion("Загрузить файл " + selectFile.getName() + "?",
-                                    "Если Вы хотите загрузить данный файл в память Вашего компьютер, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
-                                    this.getClass().getDeclaredMethod("downloadFileFromServer", String.class, String.class, long.class, MainWindowController.class),
-                                    new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                enterFileDir();
+            }
+        });
+
+
+        listViewFiles.setOnKeyReleased(event -> {
+            switch (event.getCode()){
+                case UP:
+                    if(listViewFiles.getSelectionModel().getSelectedItem() != null) {
+                        selectFile = listViewFiles.getSelectionModel().getSelectedItem();
                     }
-                }
+                    break;
+                case DOWN:
+                    if(listViewFiles.getSelectionModel().getSelectedItem() != null) {
+                        selectFile = listViewFiles.getSelectionModel().getSelectedItem();
+                    }
+                    break;
+                case ENTER:
+                    enterFileDir();
+                    break;
+                case BACK_SPACE:
+                    updateFilesTree("..");
+                    break;
+                default:
+                    break;
             }
         });
 
@@ -260,7 +311,6 @@ public class MainWindowController {
                             this.getClass().getDeclaredMethod("downloadFileFromServer", String.class, String.class, long.class, MainWindowController.class),
                             new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
                 }catch (Exception e) {
-                    e.printStackTrace();
                     showError("Ошибка при загрузке файла", "По каким-то причинам невозможно загрузить данных файл.");
             }}});
 
@@ -288,11 +338,10 @@ public class MainWindowController {
                             MWC.progressBarProgress.setProgress(allBytesRead/(double)selectedFile.length());
                         }
                         inputStream.close();
-                        outputStream.close();
                         Platform.runLater(() -> MWC.gridPaneProgress.setVisible(false));
                         Platform.runLater(() -> MWC.updateFilesTree(null));
+                        Platform.runLater(() -> MWC.updateFilesTree(null));
                     } catch (Exception e){
-                        e.printStackTrace();
                         showError("Ошибка при отправке файла", "По каким-то причинам невозможно отправить данных файл.");
                     }
                 }).start();
@@ -307,18 +356,105 @@ public class MainWindowController {
                             "Если Вы хотите удалить данный файл безвозвратно, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
                             this.getClass().getDeclaredMethod("deleteFileFromServer", String.class, boolean.class, MainWindowController.class),
                             new Object[]{selectFile.getPath(), selectFile.isFolder(), this});
-                }catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
                     showError("Не удается удалить файл.", "По каким-то причинам невозможно удалить файл.");
                 }
             }
         });
 
         buttonOK.setOnMouseClicked(event -> gridPaneError.setVisible(false));
+
+        // Добавление директории
+        buttonAddDirectory.setOnMouseClicked(event -> {
+            textFieldNameNewDir.setText("");
+            gridPaneNewDir.setVisible(true);
+        });
+
+        buttonAddNewDir.setOnMouseClicked(event -> {
+            try {
+                if(FTP.listFiles(nowDirectory, ftpFile -> ftpFile.isDirectory()&&ftpFile.getName().toUpperCase().contains(textFieldNameNewDir.getText().toUpperCase())).length == 0) {
+                    FTP.makeDirectory(nowDirectory + textFieldNameNewDir.getText());
+                    gridPaneNewDir.setVisible(false);
+                    updateFilesTree(null);
+                } else {
+                    textFieldNameNewDir.setText("");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        buttonAddCancel.setOnMouseClicked(event -> gridPaneNewDir.setVisible(false));
+        //
+
+        //Поиск файлов
+        textFieldSearch.setOnKeyReleased(event -> {
+            if(event.getCode() == KeyCode.ENTER && !Objects.equals(textFieldSearch.getText(), "") && isConnect) {
+                selectFile = null;
+                ObservableList<ListCellFile> files = FXCollections.observableArrayList();
+                try {
+                    FTPFileFilter filter = ftpFile -> (ftpFile.isFile() && ftpFile.getName().toUpperCase().contains(textFieldSearch.getText().toUpperCase()));
+                    FTPFile[] ftpFiles = FTP.listFiles(nowDirectory, filter);
+                    if (ftpFiles != null && ftpFiles.length > 0) {
+                        for (FTPFile file : ftpFiles) {
+                            files.add(new ListCellFile(file.getLink(), file.getName(), file.getSize(), null, false));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                files.sort(Comparator.comparing(ListCellFile::getName));
+                listViewFiles.setItems(files);
+                listViewFiles.setCellFactory(slw -> new FileListCellController());
+            }
+            if(event.getCode() == KeyCode.ENTER && Objects.equals(textFieldSearch.getText(), "")) {
+                updateFilesTree(null);
+            }
+        });
+        //
+
+        buttonAddResetConnect.setTooltip(new Tooltip("Подключение к серверу"));
+        buttonUpload.setTooltip(new Tooltip("Загрузить файл на сервер"));
+        buttonDownload.setTooltip(new Tooltip("Скачать файл с сервера"));
+        buttonAddDirectory.setTooltip(new Tooltip("Добавить новую папку"));
+        buttonDelete.setTooltip(new Tooltip("Удалить файл/папку"));
+        buttonUpdate.setTooltip(new Tooltip("Обновить"));
+
+        // Переименовать файл
+        buttonRename.setOnMouseClicked(event -> {
+            try {
+                if(Objects.equals(textFieldRename.getText(), oldNameRenameFile)) {
+                    gridPaneRename.setVisible(false);
+                    return;
+                }
+                boolean res;
+                if(isFolderRenameFile) {
+                    res = FTP.rename(renameFilePath, renameFilePath.substring(0, renameFilePath.lastIndexOf("\\") + 1) + textFieldRename.getText());
+                } else {
+                    res = FTP.rename(renameFilePath, renameFilePath.substring(0, renameFilePath.lastIndexOf("\\") + 1) + textFieldRename.getText() + renameFilePath.substring(renameFilePath.lastIndexOf(".")));
+                }
+                if(res){
+                    gridPaneRename.setVisible(false);
+                    updateFilesTree(null);
+                } else {
+                    textFieldRename.setText(oldNameRenameFile);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        buttonRenameCancel.setOnMouseClicked(event -> gridPaneRename.setVisible(false));
+        //
+
+        imageAbout.setOnMouseClicked(event -> gridPaneAbout.setVisible(true));
+
+        buttonAboutOK.setOnMouseClicked(event -> gridPaneAbout.setVisible(false));
     }
 
     public void Initialization(Stage _stage) {
         STAGE = _stage;
+        MWC = this;
         initComponents();
     }
 
@@ -328,6 +464,7 @@ public class MainWindowController {
         buttonAddDirectory.setDisable(isDisable);
         buttonDelete.setDisable(isDisable);
         buttonUpdate.setDisable(isDisable);
+        textFieldSearch.setDisable(isDisable);
     }
 
     //Функции авторизации
@@ -336,6 +473,7 @@ public class MainWindowController {
             optionButtonDisable(true);
             isConnect = false;
             try {
+                FTP.setControlEncoding("windows-1251");
                 if(FTP.isConnected()) FTP.disconnect(); // Если уже есть соединение, то разрываем его
                 FTP.connect(textFieldIPAddress.getText()); // Создаем новое и проверяем на корректность
                 if(FTP.isConnected()) {
@@ -363,7 +501,6 @@ public class MainWindowController {
                     labelShowError.setText("Неудачная попыка подключения.");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
                 labelShowError.setText("Неудачная попыка подключения.");
             }
         }
@@ -409,8 +546,8 @@ public class MainWindowController {
         ObservableList<ListCellFile> files = FXCollections.observableArrayList();
         if(isConnect) {
             try {
-                FTP.changeWorkingDirectory(nowDirectory);
-                FTPFile[] ftpFiles = FTP.listFiles(); // Получаем все файлы папки FTP сервера
+                //FTP.changeWorkingDirectory(nowDirectory);
+                FTPFile[] ftpFiles = FTP.listFiles(nowDirectory); // Получаем все файлы папки FTP сервера
                 if (ftpFiles != null && ftpFiles.length > 0) {
                     for (FTPFile file : ftpFiles) {
                         if (file.isDirectory()) {
@@ -430,10 +567,27 @@ public class MainWindowController {
         listViewFiles.setItems(files);
         listViewFiles.setCellFactory(slw -> new FileListCellController());
     }
+
+    private void enterFileDir() {
+        if(selectFile != null) {
+            if(selectFile.isFolder()){
+                updateFilesTree(selectFile.getName());
+            } else {
+                try {
+                    showQuestion("Загрузить файл " + selectFile.getName() + "?",
+                            "Если Вы хотите загрузить данный файл в память Вашего компьютер, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
+                            this.getClass().getDeclaredMethod("downloadFileFromServer", String.class, String.class, long.class, MainWindowController.class),
+                            new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
     //
 
     // Вывод вопроса
-    private void showQuestion (String title, String description, Method method, Object[] params){
+    public void showQuestion (String title, String description, Method method, Object[] params){
         labelQuestion.setText(title);
         labelDesQuestion.setText(description);
         gridPaneQuestion.setVisible(true);
@@ -449,7 +603,6 @@ public class MainWindowController {
                     e.printStackTrace();
                 }
             }).start();
-
         });
     }
 
@@ -493,8 +646,8 @@ public class MainWindowController {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             showError("Ошибка при загрузке файла", "По каким-то причинам невозможно загрузить данных файл.");
+            e.printStackTrace();
         }
     }
 
@@ -519,6 +672,7 @@ public class MainWindowController {
             }
             Platform.runLater(() -> MWC.updateFilesTree(null));
         } catch (Exception e) {
+            showError("Ошибка при удалении файла", "По каким-то причинам невозможно удалить данных файл.");
             e.printStackTrace();
         }
     }

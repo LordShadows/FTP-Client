@@ -37,10 +37,11 @@ public class FTPUtil {
 						Platform.runLater(() -> MWC.updateDeleteProgress(currentFileName, aFile.getSize()));
 					} else {
 						MWC.showError("Не удается удалить файл.", "По каким-то причинам невозможно удалить файл.");
+						break;
 					}
 				}
 			}
-			if (MWC.FTP.removeDirectory(dirToList)) {
+			if (!MWC.FTP.removeDirectory(dirToList)) {
 				MWC.showError("Не удается удалить файл.", "По каким-то причинам невозможно удалить файл.");
 			}
 		}
