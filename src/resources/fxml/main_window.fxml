@@ -233,7 +233,7 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <GridPane fx:id="gridPaneDownload" layoutX="10.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+            <GridPane fx:id="gridPaneProgress" layoutX="10.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -246,12 +246,52 @@
                         <DropShadow color="#0000001d" height="23.97" offsetY="6.0" radius="18.8975" width="53.62" />
                      </effect>
                      <children>
-                        <Label fx:id="labelDownloadFile" layoutX="32.0" layoutY="23.0" prefHeight="15.0" prefWidth="426.0" text="Загрузка файла root.txt" textAlignment="JUSTIFY" textFill="#232323" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="23.0">
+                        <Label fx:id="labelProgressFile" layoutX="32.0" layoutY="23.0" prefHeight="15.0" prefWidth="426.0" text="Загрузка файла root.txt" textAlignment="JUSTIFY" textFill="#232323" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="23.0">
                            <font>
                               <Font name="Segoe UI" size="12.0" />
                            </font>
                         </Label>
-                        <ProgressBar fx:id="progressBarDownload" layoutX="30.0" layoutY="46.0" prefHeight="25.0" prefWidth="435.0" progress="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="46.0" />
+                        <ProgressBar fx:id="progressBarProgress" layoutX="30.0" layoutY="46.0" prefHeight="25.0" prefWidth="435.0" progress="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="46.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridPaneError" layoutX="10.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="495.0" styleClass="login-pane" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <effect>
+                        <DropShadow color="#0000001d" height="23.97" offsetY="6.0" radius="18.8975" width="53.62" />
+                     </effect>
+                     <children>
+                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                           <image>
+                              <Image url="@../img/error.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="buttonOK" layoutX="365.0" layoutY="177.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="110.0" styleClass="main-button" text="ОК" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="20.0" />
+                        <VBox layoutX="125.0" layoutY="24.0" prefHeight="78.0" prefWidth="346.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="24.0">
+                           <children>
+                              <Label fx:id="labelError" text="Заголовок" textAlignment="JUSTIFY" textFill="#232323" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelDesError" text="Пояснение" textAlignment="JUSTIFY" textFill="#232323" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI" size="11.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="7.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
                </children>

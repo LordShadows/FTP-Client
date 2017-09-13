@@ -1,6 +1,5 @@
 package javacode.classresources;
 
-import org.apache.commons.net.ftp.FTPFile;
 
 public class ListCellFile {
     private String path;

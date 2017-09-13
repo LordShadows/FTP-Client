@@ -1,6 +1,7 @@
 package javacode.controllers;
 
 import javacode.classresources.ListCellFile;
+import javacode.implementationclasses.FTPUtil;
 import javacode.listcellscontrollers.FileListCellController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -29,11 +30,14 @@ public class MainWindowController {
     private double xOffset;
     private double yOffset;
 
-    FTPClient FTP = new FTPClient();
+    public FTPClient FTP = new FTPClient();
     private boolean isConnect = false;
 
     private String nowDirectory = "\\";
     private ListCellFile selectFile = null;
+
+    public long dirSize;
+    public long deleteDirSize;
 
     @FXML
     private AnchorPane anchorPaneMainHeader;
@@ -114,13 +118,25 @@ public class MainWindowController {
     private Label labelDesQuestion;
 
     @FXML
-    public GridPane gridPaneDownload;
+    public GridPane gridPaneProgress;
 
     @FXML
-    public Label labelDownloadFile;
+    public Label labelProgressFile;
 
     @FXML
-    public ProgressBar progressBarDownload;
+    public ProgressBar progressBarProgress;
+
+    @FXML
+    private GridPane gridPaneError;
+
+    @FXML
+    private Button buttonOK;
+
+    @FXML
+    private Label labelError;
+
+    @FXML
+    private Label labelDesError;
 
 
     private void initComponents() {
@@ -137,7 +153,7 @@ public class MainWindowController {
             buttonHeaderMax.setStyle("-fx-background-image: url(" + getClass().getResource("/resources/img/headerbuttons/max-normal.png") + ");");
         });
 
-        buttonHeaderClose.setOnAction(event -> STAGE.close());
+        buttonHeaderClose.setOnAction(event -> System.exit(0));
 
         buttonHeaderMin.setOnAction(event -> STAGE.setIconified(true));
 
@@ -219,7 +235,6 @@ public class MainWindowController {
                     if(selectFile.isFolder()){
                         updateFilesTree(selectFile.getName());
                     } else {
-                        new Thread(() -> Platform.runLater(() -> {
                         try {
                             showQuestion("Загрузить файл " + selectFile.getName() + "?",
                                     "Если Вы хотите загрузить данный файл в память Вашего компьютер, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
@@ -227,7 +242,7 @@ public class MainWindowController {
                                     new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
                         }catch (Exception e) {
                             e.printStackTrace();
-                        }})).start();
+                        }
                     }
                 }
             }
@@ -236,8 +251,9 @@ public class MainWindowController {
         // Звкрытие окна вопроса
         buttonNo.setOnMouseClicked(event -> gridPaneQuestion.setVisible(false));
 
+        //Инициализация загрузки файла c сервер
         buttonDownload.setOnMouseClicked(event -> {
-            new Thread(() -> Platform.runLater(() -> {
+            if(selectFile != null && !selectFile.isFolder()) {
                 try {
                     showQuestion("Загрузить файл " + selectFile.getName() + "?",
                             "Если Вы хотите загрузить данный файл в память Вашего компьютер, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
@@ -245,8 +261,60 @@ public class MainWindowController {
                             new Object[]{selectFile.getPath(), selectFile.getName(), selectFile.getSize(), this});
                 }catch (Exception e) {
                     e.printStackTrace();
-                }})).start();
+                    showError("Ошибка при загрузке файла", "По каким-то причинам невозможно загрузить данных файл.");
+            }}});
+
+        // Отправка файла на сервер
+        buttonUpload.setOnMouseClicked(event -> {
+            MainWindowController MWC = this;
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Открыть файл...");
+            File selectedFile = fileChooser.showOpenDialog(STAGE);
+            if(selectedFile != null){
+                progressBarProgress.setProgress(0);
+                labelProgressFile.setText("Отправка файла на сервер: " + selectedFile.getName());
+                gridPaneProgress.setVisible(true);
+                new Thread(() -> {
+                    try {
+                        String RemoteFile = nowDirectory + selectedFile.getName();
+                        FileInputStream inputStream = new FileInputStream(selectedFile);
+                        OutputStream outputStream = FTP.storeFileStream(RemoteFile);
+                        byte[] bytesIn = new byte[1024];
+                        int read;
+                        long allBytesRead = 0;
+                        while ((read = inputStream.read(bytesIn)) != -1) {
+                            outputStream.write(bytesIn, 0, read);
+                            allBytesRead += read;
+                            MWC.progressBarProgress.setProgress(allBytesRead/(double)selectedFile.length());
+                        }
+                        inputStream.close();
+                        outputStream.close();
+                        Platform.runLater(() -> MWC.gridPaneProgress.setVisible(false));
+                        Platform.runLater(() -> MWC.updateFilesTree(null));
+                    } catch (Exception e){
+                        e.printStackTrace();
+                        showError("Ошибка при отправке файла", "По каким-то причинам невозможно отправить данных файл.");
+                    }
+                }).start();
+            }
         });
+
+        // Удаление файла/директории
+        buttonDelete.setOnMouseClicked(event -> {
+            if(selectFile != null && !Objects.equals(selectFile.getName(), "..")) {
+                try {
+                    showQuestion("Удалить файл " + selectFile.getName() + "?",
+                            "Если Вы хотите удалить данный файл безвозвратно, нажмите кнопку \"Да\". В противном случае нажмите кнопку \"Нет\".",
+                            this.getClass().getDeclaredMethod("deleteFileFromServer", String.class, boolean.class, MainWindowController.class),
+                            new Object[]{selectFile.getPath(), selectFile.isFolder(), this});
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    showError("Не удается удалить файл.", "По каким-то причинам невозможно удалить файл.");
+                }
+            }
+        });
+
+        buttonOK.setOnMouseClicked(event -> gridPaneError.setVisible(false));
     }
 
     public void Initialization(Stage _stage) {
@@ -277,7 +345,7 @@ public class MainWindowController {
                         if (FTPReply.isPositiveCompletion(reply)) // Проверяем подключение
                         {
                             FTP.enterLocalPassiveMode();
-                            labelShowError.setText("Связь установлена.");
+                            labelShowError.setText("");
                             isConnect = true;
                             gridPaneLogInBlock.setVisible(false);
                             optionButtonDisable(false);
@@ -296,6 +364,7 @@ public class MainWindowController {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                labelShowError.setText("Неудачная попыка подключения.");
             }
         }
     }
@@ -369,15 +438,18 @@ public class MainWindowController {
         labelDesQuestion.setText(description);
         gridPaneQuestion.setVisible(true);
         buttonYes.setOnMouseClicked(event -> {
-            try {
-                Class c = method.getDeclaringClass();
-                Object t = c.newInstance();
-                method.setAccessible(true);
-                method.invoke(t, params);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             gridPaneQuestion.setVisible(false);
+            new Thread(()-> {
+                try {
+                    Class c = method.getDeclaringClass();
+                    Object t = c.newInstance();
+                    method.setAccessible(true);
+                    method.invoke(t, params);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+
         });
     }
 
@@ -385,9 +457,9 @@ public class MainWindowController {
     private void downloadFileFromServer (String path, String name, long size, MainWindowController MWC){
         try {
             Platform.runLater(() -> {
-                MWC.progressBarDownload.setProgress(0);
-                MWC.labelDownloadFile.setText("Загрузка файла " + name);
-                MWC.gridPaneDownload.setVisible(true);
+                MWC.progressBarProgress.setProgress(0);
+                MWC.labelProgressFile.setText("Загрузка файла на диск: " + name);
+                MWC.gridPaneProgress.setVisible(true);
             });
 
             File downloadFile = new File(new File("").getAbsolutePath() + "/temp/" + name);
@@ -399,12 +471,12 @@ public class MainWindowController {
             while ((bytesRead = inputStream.read(bytesArray)) != -1) {
                 outputStream.write(bytesArray, 0, bytesRead);
                 allBytesRead += bytesRead;
-                MWC.progressBarDownload.setProgress(allBytesRead/(double)size);
+                MWC.progressBarProgress.setProgress(allBytesRead/(double)size);
             }
             outputStream.close();
             inputStream.close();
 
-            Platform.runLater(() -> MWC.gridPaneDownload.setVisible(false));
+            Platform.runLater(() -> MWC.gridPaneProgress.setVisible(false));
 
             if (MWC.FTP.completePendingCommand()) {
                 Platform.runLater(()-> {
@@ -422,7 +494,47 @@ public class MainWindowController {
 
         } catch (Exception e) {
             e.printStackTrace();
+            showError("Ошибка при загрузке файла", "По каким-то причинам невозможно загрузить данных файл.");
         }
+    }
+
+    private void deleteFileFromServer (String path, boolean isDirectory, MainWindowController MWC){
+        try {
+            if(isDirectory) {
+                Platform.runLater(() -> {
+                    MWC.progressBarProgress.setProgress(0);
+                    MWC.labelProgressFile.setText("Подготовка к удалению...");
+                    MWC.gridPaneProgress.setVisible(true);
+                    MWC.deleteDirSize = 0;
+                });
+                try {
+                    MWC.dirSize = FTPUtil.calculateDirectoryInfo(MWC.FTP, path, "");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                FTPUtil.removeDirectory(MWC, path, "");
+                Platform.runLater(() -> MWC.gridPaneProgress.setVisible(false));
+            } else {
+                MWC.FTP.deleteFile(path);
+            }
+            Platform.runLater(() -> MWC.updateFilesTree(null));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateDeleteProgress(String file, long size){
+        labelProgressFile.setText("Удаление файла: " + file);
+        deleteDirSize += size;
+        progressBarProgress.setProgress(deleteDirSize/(double)dirSize);
+    }
+
+    public void showError(String title, String description) {
+        Platform.runLater(() -> {
+            labelError.setText(title);
+            labelDesError.setText(description);
+            gridPaneError.setVisible(true);
+        });
     }
 
 }

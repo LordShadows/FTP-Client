@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/javacode/classresources/ListCellFile.class" afterPath="$PROJECT_DIR$/out/production/FTP-client/javacode/classresources/ListCellFile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/javacode/controllers/MainWindowController.class" afterPath="$PROJECT_DIR$/out/production/FTP-client/javacode/controllers/MainWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/javacode/listcellscontrollers/FileListCellController.class" afterPath="$PROJECT_DIR$/out/production/FTP-client/javacode/listcellscontrollers/FileListCellController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/resources/img/user.png" afterPath="$PROJECT_DIR$/out/production/FTP-client/resources/img/user.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/resources/css/main_style.css" afterPath="$PROJECT_DIR$/out/production/FTP-client/resources/css/main_style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FTP-client/resources/fxml/main_window.fxml" afterPath="$PROJECT_DIR$/out/production/FTP-client/resources/fxml/main_window.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java" afterPath="$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java" afterPath="$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java" afterPath="$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/css/main_style.css" afterPath="$PROJECT_DIR$/src/resources/css/main_style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/fxml/main_window.fxml" afterPath="$PROJECT_DIR$/src/resources/fxml/main_window.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -23,6 +20,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/FTP_client$Main.coverage" NAME="Main Coverage Results" MODIFIED="1505290795403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -74,21 +76,31 @@
       <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2062">
-              <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+            <state relative-caret-position="489">
+              <caret line="321" column="25" lean-forward="false" selection-start-line="321" selection-start-column="25" selection-end-line="321" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2680#3142#0" expanded="false" />
-                <element signature="e#3195#3660#0" expanded="false" />
-                <element signature="e#3837#4153#0" expanded="false" />
-                <element signature="e#4254#4449#0" expanded="false" />
-                <element signature="e#4500#4689#0" expanded="false" />
-                <element signature="e#4769#5026#0" expanded="false" />
-                <element signature="e#5193#5309#0" expanded="false" />
-                <element signature="e#5352#5468#0" expanded="false" />
-                <element signature="e#5515#5631#0" expanded="false" />
-                <element signature="method#isInputDataCorrect#0;class#MainWindowController#0" expanded="false" />
-                <element signature="method#regex#0;class#MainWindowController#0" expanded="false" />
+                <element signature="e#2963#3425#0" expanded="false" />
+                <element signature="e#3478#3943#0" expanded="false" />
+                <element signature="e#4121#4437#0" expanded="false" />
+                <element signature="e#4538#4733#0" expanded="false" />
+                <element signature="e#4784#4973#0" expanded="false" />
+                <element signature="e#5053#5310#0" expanded="false" />
+                <element signature="e#5477#5593#0" expanded="false" />
+                <element signature="e#5636#5752#0" expanded="false" />
+                <element signature="e#5799#5915#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FTPUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FTPUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="38" column="115" lean-forward="true" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="115" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,7 +109,7 @@
       <file leaf-file-name="main_style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/css/main_style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
+            <state relative-caret-position="786">
               <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
               <folding />
             </state>
@@ -120,25 +132,26 @@
       <file leaf-file-name="ListCellFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="e#459#460#0" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="file_listcell.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1505150562316" expanded="true" signature="2326:2341" ph="..." />
-              </folding>
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -155,8 +168,8 @@
       <file leaf-file-name="FileListCellController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            <state relative-caret-position="285">
+              <caret line="81" column="20" lean-forward="true" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,9 +204,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/javacode/Main.java" />
         <option value="$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java" />
-        <option value="$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java" />
-        <option value="$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java" />
         <option value="$PROJECT_DIR$/src/resources/css/main_style.css" />
+        <option value="$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java" />
+        <option value="$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java" />
+        <option value="$PROJECT_DIR$/src/javacode/implementationclasses/FTPUtil.java" />
         <option value="$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java" />
       </list>
     </option>
@@ -230,7 +244,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -483,8 +497,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -499,7 +513,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/commons-net-3.6-sources.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -949,7 +963,10 @@
       <workItem from="1505105146500" duration="3610000" />
       <workItem from="1505115525985" duration="2554000" />
       <workItem from="1505146453928" duration="9805000" />
-      <workItem from="1505190605174" duration="21536000" />
+      <workItem from="1505190605174" duration="21794000" />
+      <workItem from="1505224602874" duration="733000" />
+      <workItem from="1505236300977" duration="2608000" />
+      <workItem from="1505278676534" duration="14456000" />
     </task>
     <task id="LOCAL-00001" summary="Added implementation of connection to the server. Implemented draft reflection of server files.">
       <created>1505201101556</created>
@@ -962,11 +979,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38807000" />
+    <option name="totallyTimeSpent" value="56862000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -978,13 +994,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32845187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1001,7 +1018,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1018,7 +1034,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1027,23 +1043,217 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2963#3425#0" expanded="false" />
+            <element signature="e#3478#3943#0" expanded="false" />
+            <element signature="e#4121#4437#0" expanded="false" />
+            <element signature="e#4538#4733#0" expanded="false" />
+            <element signature="e#4784#4973#0" expanded="false" />
+            <element signature="e#5053#5310#0" expanded="false" />
+            <element signature="e#5477#5593#0" expanded="false" />
+            <element signature="e#5636#5752#0" expanded="false" />
+            <element signature="e#5799#5915#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/main_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4284">
+          <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding>
+            <element signature="e#1132#1133#0" expanded="false" />
+            <element signature="e#1160#1161#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2963#3425#0" expanded="false" />
+            <element signature="e#3478#3943#0" expanded="false" />
+            <element signature="e#4121#4437#0" expanded="false" />
+            <element signature="e#4538#4733#0" expanded="false" />
+            <element signature="e#4784#4973#0" expanded="false" />
+            <element signature="e#5053#5310#0" expanded="false" />
+            <element signature="e#5477#5593#0" expanded="false" />
+            <element signature="e#5636#5752#0" expanded="false" />
+            <element signature="e#5799#5915#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/main_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4284">
+          <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding>
+            <element signature="e#1132#1133#0" expanded="false" />
+            <element signature="e#1160#1161#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2680#3142#0" expanded="false" />
-            <element signature="e#3195#3660#0" expanded="false" />
-            <element signature="e#3837#4153#0" expanded="false" />
-            <element signature="e#4254#4449#0" expanded="false" />
-            <element signature="e#4500#4689#0" expanded="false" />
-            <element signature="e#4769#5026#0" expanded="false" />
-            <element signature="e#5193#5309#0" expanded="false" />
-            <element signature="e#5352#5468#0" expanded="false" />
-            <element signature="e#5515#5631#0" expanded="false" />
-            <element signature="method#isInputDataCorrect#0;class#MainWindowController#0" expanded="false" />
-            <element signature="method#regex#0;class#MainWindowController#0" expanded="false" />
+            <element signature="e#2963#3425#0" expanded="false" />
+            <element signature="e#3478#3943#0" expanded="false" />
+            <element signature="e#4121#4437#0" expanded="false" />
+            <element signature="e#4538#4733#0" expanded="false" />
+            <element signature="e#4784#4973#0" expanded="false" />
+            <element signature="e#5053#5310#0" expanded="false" />
+            <element signature="e#5477#5593#0" expanded="false" />
+            <element signature="e#5636#5752#0" expanded="false" />
+            <element signature="e#5799#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1063,21 +1273,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1505150562316" expanded="true" signature="2326:2341" ph="..." />
-          </folding>
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java">
@@ -1112,17 +1323,15 @@
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2680#3142#0" expanded="false" />
-            <element signature="e#3195#3660#0" expanded="false" />
-            <element signature="e#3837#4153#0" expanded="false" />
-            <element signature="e#4254#4449#0" expanded="false" />
-            <element signature="e#4500#4689#0" expanded="false" />
-            <element signature="e#4769#5026#0" expanded="false" />
-            <element signature="e#5193#5309#0" expanded="false" />
-            <element signature="e#5352#5468#0" expanded="false" />
-            <element signature="e#5515#5631#0" expanded="false" />
-            <element signature="method#isInputDataCorrect#0;class#MainWindowController#0" expanded="false" />
-            <element signature="method#regex#0;class#MainWindowController#0" expanded="false" />
+            <element signature="e#2963#3425#0" expanded="false" />
+            <element signature="e#3478#3943#0" expanded="false" />
+            <element signature="e#4121#4437#0" expanded="false" />
+            <element signature="e#4538#4733#0" expanded="false" />
+            <element signature="e#4784#4973#0" expanded="false" />
+            <element signature="e#5053#5310#0" expanded="false" />
+            <element signature="e#5477#5593#0" expanded="false" />
+            <element signature="e#5636#5752#0" expanded="false" />
+            <element signature="e#5799#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1150,21 +1359,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1505150562316" expanded="true" signature="2326:2341" ph="..." />
-          </folding>
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java">
@@ -1191,17 +1401,15 @@
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2680#3142#0" expanded="false" />
-            <element signature="e#3195#3660#0" expanded="false" />
-            <element signature="e#3837#4153#0" expanded="false" />
-            <element signature="e#4254#4449#0" expanded="false" />
-            <element signature="e#4500#4689#0" expanded="false" />
-            <element signature="e#4769#5026#0" expanded="false" />
-            <element signature="e#5193#5309#0" expanded="false" />
-            <element signature="e#5352#5468#0" expanded="false" />
-            <element signature="e#5515#5631#0" expanded="false" />
-            <element signature="method#isInputDataCorrect#0;class#MainWindowController#0" expanded="false" />
-            <element signature="method#regex#0;class#MainWindowController#0" expanded="false" />
+            <element signature="e#2963#3425#0" expanded="false" />
+            <element signature="e#3478#3943#0" expanded="false" />
+            <element signature="e#4121#4437#0" expanded="false" />
+            <element signature="e#4538#4733#0" expanded="false" />
+            <element signature="e#4784#4973#0" expanded="false" />
+            <element signature="e#5053#5310#0" expanded="false" />
+            <element signature="e#5477#5593#0" expanded="false" />
+            <element signature="e#5636#5752#0" expanded="false" />
+            <element signature="e#5799#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1242,29 +1450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1505150562316" expanded="true" signature="2326:2341" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FileTypeIcon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1273,39 +1458,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java">
+    <entry file="jar://$PROJECT_DIR$/src/lib/commons-net-3.6.jar!/org/apache/commons/net/SocketClient.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="188">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/listcells/fxml/file_listcell.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="976" column="0" lean-forward="false" selection-start-line="976" selection-start-column="0" selection-end-line="976" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/css/main_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
+        <state relative-caret-position="786">
           <caret line="252" column="1" lean-forward="false" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
+    <entry file="file://$PROJECT_DIR$/src/javacode/listcellscontrollers/FileListCellController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2062">
-          <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="81" column="20" lean-forward="true" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2680#3142#0" expanded="false" />
-            <element signature="e#3195#3660#0" expanded="false" />
-            <element signature="e#3837#4153#0" expanded="false" />
-            <element signature="e#4254#4449#0" expanded="false" />
-            <element signature="e#4500#4689#0" expanded="false" />
-            <element signature="e#4769#5026#0" expanded="false" />
-            <element signature="e#5193#5309#0" expanded="false" />
-            <element signature="e#5352#5468#0" expanded="false" />
-            <element signature="e#5515#5631#0" expanded="false" />
-            <element signature="method#isInputDataCorrect#0;class#MainWindowController#0" expanded="false" />
-            <element signature="method#regex#0;class#MainWindowController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/classresources/ListCellFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/implementationclasses/FTPUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="38" column="115" lean-forward="true" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="115" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacode/controllers/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="321" column="25" lean-forward="false" selection-start-line="321" selection-start-column="25" selection-end-line="321" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2963#3425#0" expanded="false" />
+            <element signature="e#3478#3943#0" expanded="false" />
+            <element signature="e#4121#4437#0" expanded="false" />
+            <element signature="e#4538#4733#0" expanded="false" />
+            <element signature="e#4784#4973#0" expanded="false" />
+            <element signature="e#5053#5310#0" expanded="false" />
+            <element signature="e#5477#5593#0" expanded="false" />
+            <element signature="e#5636#5752#0" expanded="false" />
+            <element signature="e#5799#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
